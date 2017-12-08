@@ -1,0 +1,24 @@
+{
+  "name": "crawler",
+  "version": "1.0.0",
+  "description": "nothing",
+  "main": "crawler.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/935839596/crawler.git"
+  },
+  "author": "allen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/935839596/crawler/issues"
+  },
+  "homepage": "https://github.com/935839596/crawler#readme",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.2",
+    "fs": "0.0.1-security",
+    "request": "^2.83.0"
+  }
+}
