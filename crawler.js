@@ -11,14 +11,32 @@ var cheerio = require('cheerio');
 // 		console.log('error:', error)
 // 	})
 
+var yuming = 'https://juejin.im'
+
+
 request('https://juejin.im/welcome/frontend', function(error, response, body){
 	var $ = cheerio.load(body);
-	var lis = $('.main-container .welcome__section .entry-list li');
-	console.log('li has :', lis.length)
-	for(var i in lis){
-		console.log(i, $(lis[i]).find('a.title').text())
+	var lis = $('.title-row .title');
+	for(var i=0; i<lis.length; i++){
+		var article = lis.eq(i);
+		var title = article.text(),
+				url =yuming + article.attr('href');
+		console.log(url)
+		/*request(url, function (error, response, body) {
+			var $$ = cheerio.load(body);
+			var author = $$('.author-info .author-name').text(),
+					time = $$('.author-info .author-meta').text().trim();
+			if(!author){
+				console.log('wrong', url)
+				return
+			}
+			console.log(author, time)
+    })*/
 	}
 
+	// fs.writeFile('a.json',lis[0],{encoding: 'json'}, function(error){
+	// 	console.log('right')
+	// })
 	/**fs.writeFile('./xixi.html', body, {encoding: 'utf-8'}, function(error){
 		if(error){
 			console.log('文件写入失败\n', error)
