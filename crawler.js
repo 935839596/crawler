@@ -21,7 +21,26 @@ request('https://juejin.im/welcome/frontend', function(error, response, body){
 		var article = lis.eq(i);
 		var title = article.text(),
 				url =yuming + article.attr('href');
-		console.log(url)
+		//console.log(url)
+
+    let getArticle = new Promise((resolve, reject) => {
+      request(url, function (error, response, body) {
+        var $$ = cheerio.load(body);
+        var author = $$('.author-info .author-name').text(),
+            time = $$('.author-info .author-meta').text().trim();
+        console.log(url)
+        resolve({
+          title: title,
+          url: url,
+          author: author,
+          time: time
+        })
+      })
+    })
+
+    getArticle.then( article => {
+      console.log( article.title? 'gg':article.title)
+    })
 		/*request(url, function (error, response, body) {
 			var $$ = cheerio.load(body);
 			var author = $$('.author-info .author-name').text(),
