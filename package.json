@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/935839596/crawler#readme",
   "dependencies": {
+    "axios": "^0.17.1",
     "cheerio": "^1.0.0-rc.2",
     "fs": "0.0.1-security",
     "jsonfile": "^4.0.0",
