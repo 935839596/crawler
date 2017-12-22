@@ -21,6 +21,9 @@
     "cheerio": "^1.0.0-rc.2",
     "fs": "0.0.1-security",
     "jsonfile": "^4.0.0",
+    "jsonp": "^0.2.1",
+    "md5": "^2.2.1",
+    "mongoose": "^4.13.7",
     "request": "^2.83.0"
   }
 }
