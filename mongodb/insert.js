@@ -25,10 +25,11 @@ var user = new User({
 })*/
 
 user.save(function(err){
-  if(err){
+  /*if(err){
     console.log(2,err);
     return;
   }else{
     console.log('successful')
-  }
+  }*/
+  db.close()
 })
