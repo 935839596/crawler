@@ -9,6 +9,13 @@ var user = new User({
   username: 'allen'
 })
 
+
+var user2 = {
+  uid: '112',
+  username: 'allenchen'
+}
+user2 = new User(user2)
+
 /*User.on('index',function (err) {
   if(err){
     console.log(1,err)
@@ -31,5 +38,12 @@ user.save(function(err){
   }else{
     console.log('successful')
   }*/
+  // db.close()
+})
+
+user2.save(function(ee){
+  console.log(1)
+  //
   db.close()
 })
+
