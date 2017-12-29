@@ -1,5 +1,5 @@
 var mongoose = require('mongoose')
-
+var User = require('./user.model')
 var ArticleSchema = new mongoose.Schema({
   id: {
     type: String,
@@ -35,7 +35,11 @@ var ArticleSchema = new mongoose.Schema({
       type: Number,
       default: 0
     }
+  },
+  title: {
+    type: String,
+    default: 'XXX'
   }
 })
 
-mongoose.model('Article', ArticleSchema)
+module.exports = mongoose.model('Article', ArticleSchema)

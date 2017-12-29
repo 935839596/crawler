@@ -1,49 +1,12 @@
-var mongoose = require('mongoose');
-var connection = require('./config/mongoose')
-var db = connection()
-require('./model/user.model')
-var User = mongoose.model('User')
+require('../mongodb/config/mongoose')
+// var User = require('../mongodb/model/user.model')
+var Article = require('../mongodb/model/article.model')
 
-var user = new User({
-  uid: '1234564',
-  username: 'allen'
+var article = new Article({
+  id: '12456431',
+  buildTime: '154100'
 })
 
-
-var user2 = {
-  uid: '112',
-  username: 'allenchen'
-}
-user2 = new User(user2)
-
-/*User.on('index',function (err) {
-  if(err){
-    console.log(1,err)
-    return;
-  }
-  user.save(function(err){
-    if(err){
-      console.log(2, err);
-      return;
-    }else{
-      console.log('successful')
-    }
-  })
-})*/
-
-user.save(function(err){
-  /*if(err){
-    console.log(2,err);
-    return;
-  }else{
-    console.log('successful')
-  }*/
-  // db.close()
+article.save(function(err){
+  console.log('right')
 })
-
-user2.save(function(ee){
-  console.log(1)
-  //
-  db.close()
-})
-
