@@ -19,9 +19,9 @@ const commonParams = {
 }
 
 const listParams = Object.assign({},commonParams,{
-  "limit": 20,
+  "limit": 30,
   "category": "5562b415e4b00c57d9b94ac8",
-    // "before": 5.1
+    "before": 0.0012
 })
 
 var axios = require('axios')
@@ -97,12 +97,13 @@ function getArticle(id){
       user.tag = tag.slice();
       user.password = '123456'
       user.article = []
+      user.company = data.user.company
       user.article.push(id)
 
       article.id = id;
       article.buildTime = data.buildTime
       article.title = data.title
-
+      article.shortContent = data.content
       article.tag = tag.slice();
 
       var userExit = false;

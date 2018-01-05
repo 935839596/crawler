@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
 var md5 = require('md5')
+var password = md5('123456')
 
 var UserSchema = new mongoose.Schema({
   uid: {
@@ -16,7 +17,7 @@ var UserSchema = new mongoose.Schema({
   },
   password: {
     type: String,
-    default: md5('123456')
+    default: password
   },
   avatarLarge: {
     type: String,
@@ -33,6 +34,22 @@ var UserSchema = new mongoose.Schema({
   article:{
     type: Array,
     default: []
+  },
+  interest: {
+    type:Array,
+    default: []
+  },
+  loveArticle: {
+    type: Array,
+    default: []
+  },
+  intro: {
+    type: String,
+    default: ''
+  },
+  company: {
+    type: String,
+    default: ''
   },
   meta: {
     followeesCount: {

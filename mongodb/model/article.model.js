@@ -1,5 +1,6 @@
 var mongoose = require('mongoose')
 var User = require('./user.model')
+var Comment = require('./comment.model')
 var ArticleSchema = new mongoose.Schema({
   id: {
     type: String,
@@ -17,6 +18,11 @@ var ArticleSchema = new mongoose.Schema({
   },
   //内容
   content: {
+    type: String,
+    default: ''
+  },
+  //缩略内容
+  shortContent: {
     type: String,
     default: ''
   },
@@ -38,7 +44,11 @@ var ArticleSchema = new mongoose.Schema({
   },
   title: {
     type: String,
-    default: 'XXX'
+    default: ''
+  },
+  imageCache: {
+    type: Array,
+    default: []
   }
 })
 
