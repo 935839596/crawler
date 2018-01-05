@@ -21,7 +21,7 @@ const commonParams = {
 const listParams = Object.assign({},commonParams,{
   "limit": 30,
   "category": "5562b415e4b00c57d9b94ac8",
-    "before": 0.0012
+    // "before": 8.452
 })
 
 var axios = require('axios')
