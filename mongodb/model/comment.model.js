@@ -1,7 +1,7 @@
 var mongoose = require('mongoose')
 
 var CommentSchema = new mongoose.Schema({
-  commnetId: {
+  commentId: {
     type: String,
     unique: true
   },
@@ -30,10 +30,10 @@ var CommentSchema = new mongoose.Schema({
     default: ''
   },
   //评论此发言的评论
-  followComment: {
+  replyComment: [{
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'Discussion'
-  },
+    ref: 'Comment'
+  }],
   meta: {
     likeCount: {
       type: Number,

@@ -31,10 +31,10 @@ var DiscussionSchema = new mongoose.Schema({
     default: ''
   },
   //评论此发言的评论
-  followDiscussion: {
+  replyDiscussion: [{
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Discussion'
-  },
+  }],
   meta: {
     likeCount: {
       type: Number,
