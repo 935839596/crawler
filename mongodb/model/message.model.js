@@ -15,17 +15,18 @@ var MessageSchema = new mongoose.Schema({
   },
   fromUser: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: [User]
+    ref: 'User'
   },
   toUser: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: [User]
+    ref: 'User'
   },
   //1点赞 2评论
   type: {
      type: Number,
     default: 1
   },
+  //消息对应的文章（评论、讨论）id
   article: {
     type: mongoose.Schema.Types.ObjectId,
     ref: [Article],

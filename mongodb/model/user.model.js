@@ -35,6 +35,7 @@ var UserSchema = new mongoose.Schema({
     type: Array,
     default: []
   },
+  //我感兴趣的标签
   interest: {
     type:Array,
     default: []
