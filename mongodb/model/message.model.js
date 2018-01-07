@@ -44,5 +44,4 @@ var MessageSchema = new mongoose.Schema({
     default: false
   }
 })
-
 module.exports = mongoose.model('Message', MessageSchema)

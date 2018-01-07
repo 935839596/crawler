@@ -3,9 +3,10 @@ var mongoose = require('mongoose')
 var CommentSchema = new mongoose.Schema({
   /*使用_id作为主键
     commentId: {
-    type: String,
-    unique: true
-  },*/
+     type: String,
+      unique: true
+    },
+  */
   author: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User'
@@ -19,6 +20,10 @@ var CommentSchema = new mongoose.Schema({
   type: {
     type: Number,
     default: '0'
+  },
+  toArticleId: {
+    type: String,
+    default: ''
   },
   //如果是1，则不为空
   toCommentId: {
@@ -47,4 +52,4 @@ var CommentSchema = new mongoose.Schema({
   }
 })
 
-module.exports = mongoose.model('Comment', CommentSchema)
+module.exports =  mongoose.model('Comment', CommentSchema)
