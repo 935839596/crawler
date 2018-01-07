@@ -47,4 +47,4 @@ var DiscussionSchema = new mongoose.Schema({
   }
 })
 
-mongoose.model('Discussion', DiscussionSchema)
+module.exports = mongoose.model('Discussion', DiscussionSchema)

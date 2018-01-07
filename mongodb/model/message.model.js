@@ -2,7 +2,7 @@ var mongoose = require('mongoose')
 var Article = require('./article.model')
 var Discussion = require('./discussion.model')
 var Comment = require('./comment.model')
-var User = require('/user.model)
+var User = require('./user.model')
 
 var MessageSchema = new mongoose.Schema({
   messageId: {
@@ -44,3 +44,5 @@ var MessageSchema = new mongoose.Schema({
     default: false
   }
 })
+
+module.exports = mongoose.model('Message', MessageSchema)
