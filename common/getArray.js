@@ -14,14 +14,14 @@ const header_setting = {
 const commonParams = {
   "src": "web",
   "uid": "58671c2f128fe10057ed3709",
-  "device_id": 1513219923583,
-   "token":("eyJhY2Nlc3NfdG9rZW4iOiIzY3pmVmFsZmp1aXhydEhkIiwicmVmcmVzaF90b2tlbiI6InRQVHVJWlI1NkV1Skh0aEciLCJ0b2tlbl90eXBlIjoibWFjIiwiZXhwaXJlX2luIjoyNTkyMDAwfQ=="),
+  "device_id": 1516104661779,
+   "token":("eyJhY2Nlc3NfdG9rZW4iOiJOaWtqazlhY3ptTTE5Zzc3IiwicmVmcmVzaF90b2tlbiI6Im05aGtQZHZST2hnQktvc2oiLCJ0b2tlbl90eXBlIjoibWFjIiwiZXhwaXJlX2luIjoyNTkyMDAwfQ=="),
 }
 
 const listParams = Object.assign({},commonParams,{
   "limit": 30,
   "category": "5562b415e4b00c57d9b94ac8",
-    // "before": 8.452
+    "before": 0.245
 })
 
 var axios = require('axios')
@@ -37,6 +37,7 @@ axios.get(url, {
   articles = response.data.d.entrylist;
   return articles
 }).then( (articles)=> {
+
   for(var i=0;i<articles.length; i++){
     var index = articles[i].originalUrl.indexOf('post/');
     var id;
@@ -47,20 +48,10 @@ axios.get(url, {
       articleId.push(id)
     }
   }
-  // console.log(articleId)
-  /*var articleList = Promise.all( articleId.map( (id) => {
-    return getArticle(id).then( article => article)
-  }))
-  articleList.then( (articles) => {
-    console.log(articles)
-    jsonfile.writeFile('articles.json', articles, function(err) {
-      console.error(err)
-    })
-  })*/
   articleId.map( id => {
     getArticle(id)
   })
-})
+}).catch(err => console.log('err', err))
 
 
 function getArticle(id){
